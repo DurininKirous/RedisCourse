@@ -1,0 +1,7 @@
+sudo apt install -y make build-essential pkg-config
+git clone --branch unstable --depth 1 https://github.com/redis/redis
+cd redis/
+make -j8
+nohup ./src/redis-server > redis.log &
+cat redis.log 
+./src/redis-cli SET my "own server"
