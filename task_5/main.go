@@ -5,6 +5,7 @@ import (
 	"io"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/go-redis/redis"
 )
@@ -61,7 +62,7 @@ func printFile(redis_client *redis.Client, filePath string) error {
 		}
 
 		fmt.Print(string(data))
-		redis_client.Set(fileAbsolutePath, data, 0)
+		redis_client.Set(fileAbsolutePath, data, time.Second*60)
 	}
 	return nil
 }

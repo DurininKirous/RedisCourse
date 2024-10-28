@@ -1,0 +1,4 @@
+telnet 127.0.0.1 6379
+SET hello world	
+SET "some key" "some value"	
+EXPIRE hello 3600
